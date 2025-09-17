@@ -1,0 +1,23 @@
+creating a laravel 121 project :
+wassim@wassim-HP-EliteBook-820-G1:~$ which php
+/opt/lampp/bin/php
+wassim@wassim-HP-EliteBook-820-G1:~$ php -v
+PHP 8.2.12 (cli) (built: Nov 25 2023 08:09:53) (NTS)
+Copyright (c) The PHP Group
+Zend Engine v4.2.12, Copyright (c) Zend Technologies
+
+
+suporting libreries
+/opt/lampp/bin/php /usr/local/bin/composer require laravel/sanctum laravel/reverb mcamara/laravel-localization && cd backend && /opt/lampp/bin/php artisan vendor:publish --provider="Laravel\Sanctum\SanctumServiceProvider" && /opt/lampp/bin/php artisan vendor:publish --provider="Laravel\Reverb\ReverbServiceProvider" && /opt/lampp/bin/php artisan vendor:publish --provider="Mcamara\LaravelLocalization\LaravelLocalizationServiceProvider"
+
+
+Scaffold the monorepo structure for the web and mobile apps.
+Initialize the web frontend (React + Vite, Tailwind, Flowbite, i18n).
+Initialize the mobile app (React Native Expo, i18n).
+
+
+react webversion 
+cd /home/wassim/Documents/sofia_learning && npm create vite@latest web -- --template react && cd web && npm install && npm install -D tailwindcss postcss autoprefixer && npx tailwindcss init -p && npm install flowbite flowbite-react i18next react-i18next && npm install @heroicons/react && npm install clsx
+
+
+we are instaling node 22.17.1

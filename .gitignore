@@ -1,0 +1,42 @@
+# Laravel & PHP
+/vendor/
+/node_modules/
+/bootstrap/cache/
+/storage/*.key
+/storage/app/public
+/storage/framework/cache/data
+/storage/framework/sessions
+/storage/framework/testing
+/storage/framework/views
+/storage/logs
+
+# Environment files
+.env
+.env.backup
+.env.*.local
+
+# Laravel specific
+.phpunit.result.cache
+Homestead.json
+Homestead.yaml
+/.phpunit.cache
+/.fleet
+
+# Composer & npm/yarn lock files (optional, keep if you want reproducible installs)
+# composer.lock
+# package-lock.json
+# yarn.lock
+# pnpm-lock.yaml
+
+# IDE / Editors
+/.idea
+/.vscode
+*.swp
+*.swo
+*.swn
+*.swo
+*.orig
+
+# OS files
+.DS_Store
+Thumbs.db
