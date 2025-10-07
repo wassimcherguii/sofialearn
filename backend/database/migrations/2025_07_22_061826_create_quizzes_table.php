@@ -15,9 +15,8 @@ return new class extends Migration
             $table->id();
             $table->string('title');
             $table->text('description')->nullable();
-            $table->foreignId('lesson_id')->nullable()->constrained('lessons')->onDelete('cascade');
-            $table->foreignId('chapter_id')->nullable()->constrained('chapters')->onDelete('cascade');
-            $table->foreignId('course_id')->nullable()->constrained('courses')->onDelete('cascade');
+            // Only lesson-level attachment
+            $table->foreignId('lesson_id')->constrained('lessons')->onDelete('cascade');
             $table->timestamps();
         });
     }

@@ -13,11 +13,31 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // User::factory(10)->create();
+        // Create Admin User
+        User::create([
+            'name' => 'Admin User',
+            'email' => 'admin@sofialearn.com',
+            'password' => \Illuminate\Support\Facades\Hash::make('admin123'),
+            'role' => 'admin',
+            'email_verified_at' => now(),
+        ]);
 
-        User::factory()->create([
-            'name' => 'Test User',
-            'email' => 'test@example.com',
+        // Create Test Teacher
+        User::create([
+            'name' => 'Test Teacher',
+            'email' => 'teacher@sofialearn.com',
+            'password' => \Illuminate\Support\Facades\Hash::make('teacher123'),
+            'role' => 'teacher',
+            'email_verified_at' => now(),
+        ]);
+
+        // Create Test Student
+        User::create([
+            'name' => 'Test Student',
+            'email' => 'student@sofialearn.com',
+            'password' => \Illuminate\Support\Facades\Hash::make('student123'),
+            'role' => 'student',
+            'email_verified_at' => now(),
         ]);
     }
 }

@@ -14,10 +14,31 @@ return new class extends Migration
         Schema::create('documents', function (Blueprint $table) {
             $table->id();
             $table->foreignId('lesson_id')->constrained('lessons')->onDelete('cascade');
+            
+            // French columns (main language)
+            $table->string('title_fr');
+            $table->text('description_fr')->nullable();
+            
+            // English columns
+            $table->string('title_en')->nullable();
+            $table->text('description_en')->nullable();
+            
+            // Arabic columns
+            $table->string('title_ar')->nullable();
+            $table->text('description_ar')->nullable();
+            
+            // Non-translatable fields
             $table->string('file_path');
             $table->string('file_type');
-            $table->string('title');
+            $table->string('file_size')->nullable();
+            $table->string('mime_type')->nullable();
+            $table->boolean('is_downloadable')->default(true);
             $table->timestamps();
+            
+            // Indexes
+            $table->index(['lesson_id']);
+            $table->index(['file_type']);
+            $table->index(['is_downloadable']);
         });
     }
 

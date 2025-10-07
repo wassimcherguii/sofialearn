@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>{{ config('app.name', 'Sofia Learning') }}</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 <body class="font-sans antialiased bg-gray-50">
     <nav class="bg-white shadow-lg">
@@ -16,6 +16,7 @@
                 </div>
                 
                 <div class="flex items-center space-x-4">
+                    
                     @auth
                         <a href="{{ route('dashboard') }}" class="text-gray-700 hover:text-crimson-600">Dashboard</a>
                         <form method="POST" action="{{ route('logout') }}" class="inline">

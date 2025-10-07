@@ -11,29 +11,32 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('chapters', function (Blueprint $table) {
+        Schema::create('levels', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('course_id')->constrained('courses')->onDelete('cascade');
-            
-            // French columns (main language)
+
+            // French (primary)
             $table->string('name_fr');
             $table->text('description_fr')->nullable();
-            
-            // English columns
+            $table->string('slug_fr')->nullable();
+
+            // English
             $table->string('name_en')->nullable();
             $table->text('description_en')->nullable();
-            
-            // Arabic columns
+            $table->string('slug_en')->nullable();
+
+            // Arabic
             $table->string('name_ar')->nullable();
             $table->text('description_ar')->nullable();
-            
+            $table->string('slug_ar')->nullable();
+
             // Non-translatable fields
-            $table->unsignedInteger('order')->default(0);
+            $table->boolean('is_active')->default(true);
+            $table->unsignedInteger('display_order')->default(0);
             $table->timestamps();
-            
+
             // Indexes
-            $table->index(['course_id']);
-            $table->index(['order']);
+            $table->index(['is_active']);
+            $table->index(['display_order']);
         });
     }
 
@@ -42,6 +45,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('chapters');
+        Schema::dropIfExists('levels');
     }
 };
+
+

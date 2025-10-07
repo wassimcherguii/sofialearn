@@ -13,11 +13,35 @@ return new class extends Migration
     {
         Schema::create('courses', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->text('description')->nullable();
+            
+            // French columns (main language)
+            $table->string('name_fr');
+            $table->text('description_fr')->nullable();
+            $table->string('slug_fr')->nullable();
+            $table->text('meta_description_fr')->nullable();
+            
+            // English columns
+            $table->string('name_en')->nullable();
+            $table->text('description_en')->nullable();
+            $table->string('slug_en')->nullable();
+            $table->text('meta_description_en')->nullable();
+            
+            // Arabic columns
+            $table->string('name_ar')->nullable();
+            $table->text('description_ar')->nullable();
+            $table->string('slug_ar')->nullable();
+            $table->text('meta_description_ar')->nullable();
+            
+            // Non-translatable fields
             $table->string('language', 5)->default('fr');
             $table->foreignId('teacher_id')->constrained('users');
+            $table->boolean('is_published')->default(false);
             $table->timestamps();
+            
+            // Indexes
+            $table->index(['teacher_id']);
+            $table->index(['language']);
+            $table->index(['is_published']);
         });
     }
 

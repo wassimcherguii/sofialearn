@@ -24,6 +24,12 @@ class UserController extends Controller
 
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
+            
+            // Check if there's a specific redirect URL
+            if ($request->has('redirect_to')) {
+                return redirect($request->input('redirect_to'));
+            }
+            
             return redirect()->intended('/dashboard');
         }
 
