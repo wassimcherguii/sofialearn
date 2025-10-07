@@ -55,7 +55,7 @@
             margin-left: 4rem;
         }
         
-        /* RTL Support - Simple and Clean */
+        /* RTL Support - Enhanced and Clean */
         html[dir="rtl"] .sidebar-hidden {
             transform: translateX(100%) !important;
         }
@@ -99,6 +99,42 @@
         html[dir="rtl"] .mr-2 {
             margin-right: 0 !important;
             margin-left: 0.5rem !important;
+        }
+        
+        /* RTL Sidebar navigation icons */
+        html[dir="rtl"] nav a svg {
+            margin-right: 0 !important;
+            margin-left: 0.75rem !important;
+        }
+        
+        /* RTL Stats cards text alignment */
+        html[dir="rtl"] .bg-white .text-left {
+            text-align: right !important;
+        }
+        
+        /* RTL Quick actions grid */
+        html[dir="rtl"] .grid.md\\:grid-cols-2 .group {
+            flex-direction: row-reverse !important;
+        }
+        
+        html[dir="rtl"] .grid.md\\:grid-cols-2 .group .mr-4 {
+            margin-right: 0 !important;
+            margin-left: 1rem !important;
+        }
+        
+        /* RTL Recent activity */
+        html[dir="rtl"] .space-y-4 .flex {
+            flex-direction: row-reverse !important;
+        }
+        
+        html[dir="rtl"] .space-y-4 .flex .space-x-3 {
+            flex-direction: row-reverse !important;
+        }
+        
+        /* RTL Dropdown positioning */
+        html[dir="rtl"] #languageDropdownMenu {
+            right: auto !important;
+            left: 0 !important;
         }
         
         /* Debug: Show current locale and RTL status */
@@ -308,12 +344,12 @@
             <div id="mainContent" class="flex-1 flex flex-col sidebar-transition">
 
             <!-- Main Content Area -->
-            <main class="flex-1 p-4 md:p-6 text-left">
+            <main class="flex-1 p-4 md:p-6 {{ app()->getLocale() === 'ar' ? 'text-right' : 'text-left' }}">
                 <!-- Stats Cards -->
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
                     <div class="bg-white rounded-2xl shadow-lg shadow-gray-100/50 border border-gray-100 p-6 hover:shadow-xl transition-all duration-300">
-                        <div class="flex items-center justify-between">
-                            <div class="text-left">
+                        <div class="flex items-center {{ app()->getLocale() === 'ar' ? 'flex-row-reverse' : 'flex-row' }} justify-between">
+                            <div class="{{ app()->getLocale() === 'ar' ? 'text-right' : 'text-left' }}">
                                 <p class="text-sm font-medium text-gray-600 mb-1">{{ __('pages.admin.dashboard.stats.total_users') }}</p>
                                 <p class="text-3xl font-bold text-gray-800">{{ $stats['total_users'] ?? 0 }}</p>
                             </div>
@@ -332,8 +368,8 @@
                     </div>
 
                     <div class="bg-white rounded-2xl shadow-lg shadow-gray-100/50 border border-gray-100 p-6 hover:shadow-xl transition-all duration-300">
-                        <div class="flex items-center justify-between">
-                            <div>
+                        <div class="flex items-center {{ app()->getLocale() === 'ar' ? 'flex-row-reverse' : 'flex-row' }} justify-between">
+                            <div class="{{ app()->getLocale() === 'ar' ? 'text-right' : 'text-left' }}">
                                 <p class="text-sm font-medium text-gray-600 mb-1">{{ __('pages.admin.dashboard.stats.total_courses') }}</p>
                                 <p class="text-3xl font-bold text-gray-800">{{ $stats['total_courses'] ?? 0 }}</p>
                             </div>
@@ -352,8 +388,8 @@
                     </div>
 
                     <div class="bg-white rounded-2xl shadow-lg shadow-gray-100/50 border border-gray-100 p-6 hover:shadow-xl transition-all duration-300">
-                        <div class="flex items-center justify-between">
-                            <div>
+                        <div class="flex items-center {{ app()->getLocale() === 'ar' ? 'flex-row-reverse' : 'flex-row' }} justify-between">
+                            <div class="{{ app()->getLocale() === 'ar' ? 'text-right' : 'text-left' }}">
                                 <p class="text-sm font-medium text-gray-600 mb-1">{{ __('pages.admin.dashboard.stats.enrollments') }}</p>
                                 <p class="text-3xl font-bold text-gray-800">{{ $stats['total_enrollments'] ?? 0 }}</p>
                             </div>
@@ -372,8 +408,8 @@
                     </div>
 
                     <div class="bg-white rounded-2xl shadow-lg shadow-gray-100/50 border border-gray-100 p-6 hover:shadow-xl transition-all duration-300">
-                        <div class="flex items-center justify-between">
-                            <div>
+                        <div class="flex items-center {{ app()->getLocale() === 'ar' ? 'flex-row-reverse' : 'flex-row' }} justify-between">
+                            <div class="{{ app()->getLocale() === 'ar' ? 'text-right' : 'text-left' }}">
                                 <p class="text-sm font-medium text-gray-600 mb-1">{{ __('pages.admin.dashboard.stats.active_users') }}</p>
                                 <p class="text-3xl font-bold text-gray-800">{{ $stats['active_users'] ?? 0 }}</p>
                             </div>
@@ -397,10 +433,10 @@
                     <!-- Quick Actions -->
                     <div class="lg:col-span-2">
                         <div class="bg-white rounded-2xl shadow-lg shadow-gray-100/50 border border-gray-100 p-8">
-                            <h2 class="text-2xl font-bold text-gray-800 mb-6">{{ __('pages.admin.dashboard.quick_actions.title') }}</h2>
+                            <h2 class="text-2xl font-bold text-gray-800 mb-6 {{ app()->getLocale() === 'ar' ? 'text-right' : 'text-left' }}">{{ __('pages.admin.dashboard.quick_actions.title') }}</h2>
                             <div class="grid md:grid-cols-2 gap-4">
-                                <a href="{{ route('courses.index') }}" class="group flex items-center p-6 bg-emerald-50 hover:bg-emerald-100 rounded-xl transition-all duration-300">
-                                    <div class="w-12 h-12 bg-emerald-500 rounded-xl flex items-center justify-center mr-4 group-hover:scale-110 transition-transform">
+                                <a href="{{ route('courses.index') }}" class="group flex items-center {{ app()->getLocale() === 'ar' ? 'flex-row-reverse' : 'flex-row' }} p-6 bg-emerald-50 hover:bg-emerald-100 rounded-xl transition-all duration-300">
+                                    <div class="w-12 h-12 bg-emerald-500 rounded-xl flex items-center justify-center {{ app()->getLocale() === 'ar' ? 'ml-4' : 'mr-4' }} group-hover:scale-110 transition-transform">
                                         <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
                                         </svg>
@@ -411,8 +447,8 @@
                                     </div>
                                 </a>
 
-                                <a href="#" class="group flex items-center p-6 bg-red-50 hover:bg-red-100 rounded-xl transition-all duration-300">
-                                    <div class="w-12 h-12 bg-red-500 rounded-xl flex items-center justify-center mr-4 group-hover:scale-110 transition-transform">
+                                <a href="#" class="group flex items-center {{ app()->getLocale() === 'ar' ? 'flex-row-reverse' : 'flex-row' }} p-6 bg-red-50 hover:bg-red-100 rounded-xl transition-all duration-300">
+                                    <div class="w-12 h-12 bg-red-500 rounded-xl flex items-center justify-center {{ app()->getLocale() === 'ar' ? 'ml-4' : 'mr-4' }} group-hover:scale-110 transition-transform">
                                         <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197m13.5-9a2.5 2.5 0 11-5 0 2.5 2.5 0 015 0z"/>
                                         </svg>
@@ -423,8 +459,8 @@
                                     </div>
                                 </a>
 
-                                <a href="#" class="group flex items-center p-6 bg-amber-50 hover:bg-amber-100 rounded-xl transition-all duration-300">
-                                    <div class="w-12 h-12 bg-amber-500 rounded-xl flex items-center justify-center mr-4 group-hover:scale-110 transition-transform">
+                                <a href="#" class="group flex items-center {{ app()->getLocale() === 'ar' ? 'flex-row-reverse' : 'flex-row' }} p-6 bg-amber-50 hover:bg-amber-100 rounded-xl transition-all duration-300">
+                                    <div class="w-12 h-12 bg-amber-500 rounded-xl flex items-center justify-center {{ app()->getLocale() === 'ar' ? 'ml-4' : 'mr-4' }} group-hover:scale-110 transition-transform">
                                         <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
                                         </svg>
@@ -435,8 +471,8 @@
                                     </div>
                                 </a>
 
-                                <a href="#" class="group flex items-center p-6 bg-blue-50 hover:bg-blue-100 rounded-xl transition-all duration-300">
-                                    <div class="w-12 h-12 bg-blue-500 rounded-xl flex items-center justify-center mr-4 group-hover:scale-110 transition-transform">
+                                <a href="#" class="group flex items-center {{ app()->getLocale() === 'ar' ? 'flex-row-reverse' : 'flex-row' }} p-6 bg-blue-50 hover:bg-blue-100 rounded-xl transition-all duration-300">
+                                    <div class="w-12 h-12 bg-blue-500 rounded-xl flex items-center justify-center {{ app()->getLocale() === 'ar' ? 'ml-4' : 'mr-4' }} group-hover:scale-110 transition-transform">
                                         <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/>
                                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
@@ -454,9 +490,9 @@
                     <!-- Recent Activity -->
                     <div class="lg:col-span-1">
                         <div class="bg-white rounded-2xl shadow-lg shadow-gray-100/50 border border-gray-100 p-8">
-                            <h2 class="text-2xl font-bold text-gray-800 mb-6">{{ __('pages.admin.dashboard.recent_activity.title') }}</h2>
+                            <h2 class="text-2xl font-bold text-gray-800 mb-6 {{ app()->getLocale() === 'ar' ? 'text-right' : 'text-left' }}">{{ __('pages.admin.dashboard.recent_activity.title') }}</h2>
                             <div class="space-y-4">
-                                <div class="flex items-start space-x-3">
+                                <div class="flex items-start {{ app()->getLocale() === 'ar' ? 'flex-row-reverse space-x-reverse' : 'flex-row' }} space-x-3">
                                     <div class="w-2 h-2 bg-emerald-500 rounded-full mt-2"></div>
                                     <div>
                                         <p class="text-sm font-medium text-gray-800">{{ __('pages.admin.dashboard.recent_activity.system_status') }}</p>
@@ -465,27 +501,27 @@
                                     </div>
                                 </div>
                                 
-                                <div class="flex items-start space-x-3">
+                                <div class="flex items-start {{ app()->getLocale() === 'ar' ? 'flex-row-reverse space-x-reverse' : 'flex-row' }} space-x-3">
                                     <div class="w-2 h-2 bg-blue-500 rounded-full mt-2"></div>
-                                    <div>
+                                    <div class="{{ app()->getLocale() === 'ar' ? 'text-right' : 'text-left' }}">
                                         <p class="text-sm font-medium text-gray-800">{{ __('pages.admin.dashboard.recent_activity.new_user') }}</p>
                                         <p class="text-xs text-gray-600">{{ __('pages.admin.dashboard.recent_activity.new_user_desc', ['name' => 'John Doe']) }}</p>
                                         <p class="text-xs text-gray-400">{{ __('pages.admin.dashboard.recent_activity.time_ago.minutes', ['count' => 15]) }}</p>
                                     </div>
                                 </div>
                                 
-                                <div class="flex items-start space-x-3">
+                                <div class="flex items-start {{ app()->getLocale() === 'ar' ? 'flex-row-reverse space-x-reverse' : 'flex-row' }} space-x-3">
                                     <div class="w-2 h-2 bg-amber-500 rounded-full mt-2"></div>
-                                    <div>
+                                    <div class="{{ app()->getLocale() === 'ar' ? 'text-right' : 'text-left' }}">
                                         <p class="text-sm font-medium text-gray-800">{{ __('pages.admin.dashboard.recent_activity.course_update') }}</p>
                                         <p class="text-xs text-gray-600">{{ __('pages.admin.dashboard.recent_activity.course_update_desc') }}</p>
                                         <p class="text-xs text-gray-400">{{ __('pages.admin.dashboard.recent_activity.time_ago.hours', ['count' => 1]) }}</p>
                                     </div>
                                 </div>
                                 
-                                <div class="flex items-start space-x-3">
+                                <div class="flex items-start {{ app()->getLocale() === 'ar' ? 'flex-row-reverse space-x-reverse' : 'flex-row' }} space-x-3">
                                     <div class="w-2 h-2 bg-red-500 rounded-full mt-2"></div>
-                                    <div>
+                                    <div class="{{ app()->getLocale() === 'ar' ? 'text-right' : 'text-left' }}">
                                         <p class="text-sm font-medium text-gray-800">{{ __('pages.admin.dashboard.recent_activity.maintenance') }}</p>
                                         <p class="text-xs text-gray-600">{{ __('pages.admin.dashboard.recent_activity.maintenance_desc') }}</p>
                                         <p class="text-xs text-gray-400">{{ __('pages.admin.dashboard.recent_activity.time_ago.hours', ['count' => 2]) }}</p>
