@@ -1,0 +1,466 @@
+/* SofiaLearn User Pages Theme - Centralized Styles */
+
+/* ===== THEME VARIABLES ===== */
+:root {
+    --sofia-primary: #dc2626;      /* crimson-600 */
+    --sofia-primary-dark: #b91c1c; /* crimson-700 */
+    --sofia-primary-light: #fef2f2; /* crimson-50 */
+    --sofia-secondary: #059669;    /* emerald-600 */
+    --sofia-accent: #7c3aed;       /* violet-600 */
+    --sofia-warning: #d97706;      /* amber-600 */
+    --sofia-success: #16a34a;      /* green-600 */
+    --sofia-danger: #dc2626;       /* red-600 */
+    --sofia-info: #2563eb;         /* blue-600 */
+    
+    /* Typography */
+    --sofia-font-arabic: 'Noto Sans Arabic', 'Cairo', 'Tajawal', 'Amiri', 'Scheherazade New', sans-serif;
+    --sofia-font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif;
+    
+    /* Gradients */
+    --sofia-gradient-primary: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%);
+    --sofia-gradient-secondary: linear-gradient(135deg, #059669 0%, #047857 100%);
+    --sofia-gradient-hero: linear-gradient(135deg, #fef2f2 0%, #fed7aa 100%);
+    
+    /* Shadows */
+    --sofia-shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+    --sofia-shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+    --sofia-shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+    --sofia-shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+}
+
+/* ===== RTL SUPPORT ===== */
+html[dir="rtl"] {
+    font-family: var(--sofia-font-arabic);
+}
+
+html[dir="rtl"] .rtl-reverse {
+    flex-direction: row-reverse;
+}
+
+html[dir="rtl"] .rtl-text-right {
+    text-align: right;
+}
+
+html[dir="rtl"] .rtl-margin-start {
+    margin-inline-start: 0.75rem;
+}
+
+html[dir="rtl"] .rtl-margin-end {
+    margin-inline-end: 0.75rem;
+}
+
+/* ===== HERO SECTION ===== */
+.sofia-hero {
+    background: var(--sofia-gradient-hero);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.sofia-hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="dots" patternUnits="userSpaceOnUse" width="20" height="20"><circle cx="10" cy="10" r="1" fill="%23dc2626" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23dots)"/></svg>');
+    opacity: 0.3;
+}
+
+.sofia-hero-content {
+    position: relative;
+    z-index: 1;
+}
+
+.sofia-hero-title {
+    font-size: 3.5rem;
+    font-weight: 800;
+    line-height: 1.1;
+    color: #111827;
+    margin-bottom: 1.5rem;
+}
+
+.sofia-hero-subtitle {
+    font-size: 1.25rem;
+    color: #6b7280;
+    margin-bottom: 2rem;
+    max-width: 42rem;
+}
+
+/* ===== BUTTONS THEME ===== */
+.sofia-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+.sofia-btn-primary {
+    background: var(--sofia-gradient-primary);
+    color: white;
+    box-shadow: var(--sofia-shadow-md);
+}
+
+.sofia-btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--sofia-shadow-lg);
+    color: white;
+}
+
+.sofia-btn-secondary {
+    background: white;
+    color: var(--sofia-primary);
+    border: 2px solid var(--sofia-primary);
+    box-shadow: var(--sofia-shadow-sm);
+}
+
+.sofia-btn-secondary:hover {
+    background: var(--sofia-primary);
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: var(--sofia-shadow-md);
+}
+
+.sofia-btn-outline {
+    background: transparent;
+    color: white;
+    border: 2px solid white;
+}
+
+.sofia-btn-outline:hover {
+    background: white;
+    color: var(--sofia-primary);
+    transform: translateY(-2px);
+}
+
+.sofia-btn-lg {
+    padding: 1rem 2rem;
+    font-size: 1.125rem;
+}
+
+.sofia-btn-xl {
+    padding: 1.25rem 2.5rem;
+    font-size: 1.25rem;
+}
+
+/* ===== CARDS THEME ===== */
+.sofia-card {
+    background: white;
+    border-radius: 1rem;
+    box-shadow: var(--sofia-shadow-md);
+    padding: 2rem;
+    transition: all 0.3s ease;
+    border: 1px solid #f3f4f6;
+}
+
+.sofia-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--sofia-shadow-xl);
+}
+
+.sofia-card-feature {
+    text-align: center;
+    padding: 3rem 2rem;
+}
+
+.sofia-card-feature-icon {
+    width: 4rem;
+    height: 4rem;
+    background: var(--sofia-gradient-primary);
+    border-radius: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.5rem;
+    color: white;
+}
+
+.sofia-card-feature-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #111827;
+    margin-bottom: 1rem;
+}
+
+.sofia-card-feature-description {
+    color: #6b7280;
+    line-height: 1.6;
+}
+
+/* ===== SECTIONS ===== */
+.sofia-section {
+    padding: 5rem 0;
+}
+
+.sofia-section-alt {
+    background: #f9fafb;
+}
+
+.sofia-section-title {
+    font-size: 2.5rem;
+    font-weight: 800;
+    text-align: center;
+    color: #111827;
+    margin-bottom: 1rem;
+}
+
+.sofia-section-subtitle {
+    font-size: 1.25rem;
+    text-align: center;
+    color: #6b7280;
+    margin-bottom: 3rem;
+    max-width: 42rem;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+html[dir="rtl"] .sofia-section-subtitle {
+    text-align: center;
+}
+
+/* ===== NAVIGATION ===== */
+.sofia-nav {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 50;
+    transition: all 0.3s ease;
+}
+
+.sofia-nav.scrolled {
+    background: white;
+    box-shadow: var(--sofia-shadow-md);
+}
+
+.sofia-nav-brand {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: var(--sofia-primary);
+    text-decoration: none;
+}
+
+.sofia-nav-link {
+    color: #374151;
+    text-decoration: none;
+    font-weight: 500;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    transition: all 0.3s ease;
+}
+
+.sofia-nav-link:hover {
+    color: var(--sofia-primary);
+    background: var(--sofia-primary-light);
+}
+
+.sofia-nav-link.active {
+    color: var(--sofia-primary);
+    background: var(--sofia-primary-light);
+}
+
+/* ===== FORMS ===== */
+.sofia-form-group {
+    margin-bottom: 1.5rem;
+}
+
+.sofia-form-label {
+    display: block;
+    font-weight: 600;
+    color: #374151;
+    margin-bottom: 0.5rem;
+}
+
+html[dir="rtl"] .sofia-form-label {
+    text-align: right;
+}
+
+.sofia-form-input {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border: 2px solid #e5e7eb;
+    border-radius: 0.5rem;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.sofia-form-input:focus {
+    outline: none;
+    border-color: var(--sofia-primary);
+    box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.1);
+}
+
+html[dir="rtl"] .sofia-form-input {
+    text-align: right;
+}
+
+/* ===== TESTIMONIALS ===== */
+.sofia-testimonial {
+    background: white;
+    border-radius: 1rem;
+    padding: 2rem;
+    box-shadow: var(--sofia-shadow-md);
+    text-align: center;
+}
+
+.sofia-testimonial-text {
+    font-size: 1.125rem;
+    color: #374151;
+    font-style: italic;
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+}
+
+.sofia-testimonial-author {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.sofia-testimonial-avatar {
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+    background: var(--sofia-gradient-primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: 700;
+}
+
+.sofia-testimonial-name {
+    font-weight: 600;
+    color: #111827;
+}
+
+.sofia-testimonial-role {
+    color: #6b7280;
+    font-size: 0.875rem;
+}
+
+/* ===== FOOTER ===== */
+.sofia-footer {
+    background: #111827;
+    color: #9ca3af;
+    padding: 3rem 0 1rem;
+}
+
+.sofia-footer-brand {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: white;
+    text-decoration: none;
+    margin-bottom: 1rem;
+    display: block;
+}
+
+.sofia-footer-link {
+    color: #9ca3af;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.sofia-footer-link:hover {
+    color: white;
+}
+
+.sofia-footer-title {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: white;
+    margin-bottom: 1rem;
+}
+
+/* ===== RESPONSIVE DESIGN ===== */
+@media (max-width: 768px) {
+    .sofia-hero-title {
+        font-size: 2.5rem;
+    }
+    
+    .sofia-hero-subtitle {
+        font-size: 1.125rem;
+    }
+    
+    .sofia-section-title {
+        font-size: 2rem;
+    }
+    
+    .sofia-card {
+        padding: 1.5rem;
+    }
+    
+    .sofia-btn-lg {
+        padding: 0.875rem 1.5rem;
+        font-size: 1rem;
+    }
+    
+    .sofia-btn-xl {
+        padding: 1rem 2rem;
+        font-size: 1.125rem;
+    }
+}
+
+/* ===== ANIMATIONS ===== */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.sofia-animate-fade-in-up {
+    animation: fadeInUp 0.6s ease-out;
+}
+
+.sofia-animate-delay-1 {
+    animation-delay: 0.1s;
+}
+
+.sofia-animate-delay-2 {
+    animation-delay: 0.2s;
+}
+
+.sofia-animate-delay-3 {
+    animation-delay: 0.3s;
+}
+
+/* ===== UTILITIES ===== */
+.sofia-text-gradient {
+    background: var(--sofia-gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.sofia-bg-gradient {
+    background: var(--sofia-gradient-primary);
+}
+
+.sofia-bg-gradient-secondary {
+    background: var(--sofia-gradient-secondary);
+}
+
+.sofia-bg-gradient-hero {
+    background: var(--sofia-gradient-hero);
+}
+
+

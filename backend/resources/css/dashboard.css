@@ -1,0 +1,288 @@
+/* SofiaLearn Dashboard Theme - Centralized Styles */
+
+/* ===== THEME VARIABLES ===== */
+:root {
+    --sofia-primary: #dc2626;      /* crimson-600 */
+    --sofia-primary-dark: #b91c1c; /* crimson-700 */
+    --sofia-primary-light: #fef2f2; /* crimson-50 */
+    --sofia-secondary: #059669;    /* emerald-600 */
+    --sofia-accent: #7c3aed;       /* violet-600 */
+    --sofia-warning: #d97706;      /* amber-600 */
+    --sofia-success: #16a34a;      /* green-600 */
+    --sofia-danger: #dc2626;       /* red-600 */
+    --sofia-info: #2563eb;         /* blue-600 */
+    
+    /* Typography */
+    --sofia-font-arabic: 'Noto Sans Arabic', 'Cairo', 'Tajawal', 'Amiri', 'Scheherazade New', sans-serif;
+    --sofia-font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif;
+    
+    /* Spacing */
+    --sofia-sidebar-width: 16rem;
+    --sofia-sidebar-collapsed: 4rem;
+    --sofia-header-height: 4rem;
+    
+    /* Shadows */
+    --sofia-shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+    --sofia-shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+    --sofia-shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+}
+
+/* ===== RTL SUPPORT ===== */
+html[dir="rtl"] {
+    font-family: var(--sofia-font-arabic);
+}
+
+html[dir="rtl"] .rtl-reverse {
+    flex-direction: row-reverse;
+}
+
+html[dir="rtl"] .rtl-text-right {
+    text-align: right;
+}
+
+html[dir="rtl"] .rtl-margin-start {
+    margin-inline-start: 0.75rem;
+}
+
+html[dir="rtl"] .rtl-margin-end {
+    margin-inline-end: 0.75rem;
+}
+
+/* ===== SIDEBAR THEME ===== */
+.sofia-sidebar {
+    width: var(--sofia-sidebar-width);
+    background: white;
+    box-shadow: var(--sofia-shadow-lg);
+    border-inline-end: 1px solid #e5e7eb;
+    transition: all 0.3s ease-in-out;
+}
+
+html[dir="rtl"] .sofia-sidebar {
+    border-inline-start: 1px solid #e5e7eb;
+    border-inline-end: none;
+}
+
+.sofia-sidebar.collapsed {
+    width: var(--sofia-sidebar-collapsed);
+}
+
+.sofia-sidebar.hidden {
+    transform: translateX(-100%);
+}
+
+html[dir="rtl"] .sofia-sidebar.hidden {
+    transform: translateX(100%);
+}
+
+/* ===== NAVIGATION THEME ===== */
+.sofia-nav-item {
+    display: flex;
+    align-items: center;
+    padding: 0.75rem 1rem;
+    color: #6b7280;
+    border-radius: 0.75rem;
+    transition: all 0.15s ease-in-out;
+}
+
+.sofia-nav-item:hover {
+    color: #059669;
+    background-color: #ecfdf5;
+}
+
+html[dir="rtl"] .sofia-nav-item {
+    flex-direction: row-reverse;
+}
+
+.sofia-nav-item.active {
+    color: #059669;
+    background-color: #ecfdf5;
+}
+
+.sofia-nav-icon {
+    width: 1.25rem;
+    height: 1.25rem;
+    flex-shrink: 0;
+}
+
+html[dir="rtl"] .sofia-nav-icon {
+    margin-left: 0.75rem;
+    margin-right: 0;
+}
+
+/* ===== CARDS THEME ===== */
+.sofia-card {
+    background-color: white;
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+    padding: 1.5rem;
+}
+
+.sofia-card-header {
+    border-bottom: 1px solid #e5e7eb;
+    padding-bottom: 1rem;
+    margin-bottom: 1rem;
+}
+
+.sofia-card-title {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: #111827;
+}
+
+.sofia-card-subtitle {
+    font-size: 0.875rem;
+    color: #6b7280;
+}
+
+/* ===== BUTTONS THEME ===== */
+.sofia-btn-primary {
+    background-color: #dc2626;
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    font-weight: 500;
+    transition: all 0.15s ease-in-out;
+}
+
+.sofia-btn-primary:hover {
+    background-color: #b91c1c;
+}
+
+.sofia-btn-secondary {
+    background-color: #f3f4f6;
+    color: #374151;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    font-weight: 500;
+    transition: all 0.15s ease-in-out;
+}
+
+.sofia-btn-secondary:hover {
+    background-color: #e5e7eb;
+}
+
+.sofia-btn-success {
+    background-color: #059669;
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    font-weight: 500;
+    transition: all 0.15s ease-in-out;
+}
+
+.sofia-btn-success:hover {
+    background-color: #047857;
+}
+
+/* ===== FORMS THEME ===== */
+.sofia-input {
+    width: 100%;
+    padding: 0.5rem 0.75rem;
+    border: 1px solid #d1d5db;
+    border-radius: 0.5rem;
+    transition: all 0.15s ease-in-out;
+}
+
+.sofia-input:focus {
+    outline: none;
+    ring: 2px;
+    ring-color: #dc2626;
+    border-color: #dc2626;
+}
+
+html[dir="rtl"] .sofia-input {
+    text-align: right;
+}
+
+.sofia-label {
+    display: block;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: #374151;
+    margin-bottom: 0.25rem;
+}
+
+html[dir="rtl"] .sofia-label {
+    text-align: right;
+}
+
+/* ===== TABLES THEME ===== */
+.sofia-table {
+    min-width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+}
+
+.sofia-table th {
+    padding: 0.75rem 1.5rem;
+    text-align: left;
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: #6b7280;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+html[dir="rtl"] .sofia-table th {
+    text-align: right;
+}
+
+.sofia-table td {
+    padding: 1rem 1.5rem;
+    white-space: nowrap;
+    font-size: 0.875rem;
+    color: #111827;
+}
+
+/* ===== BADGES THEME ===== */
+.sofia-badge {
+    display: inline-flex;
+    padding: 0.25rem 0.5rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    border-radius: 9999px;
+}
+
+.sofia-badge-success {
+    background-color: #dcfce7;
+    color: #166534;
+}
+
+.sofia-badge-warning {
+    background-color: #fef3c7;
+    color: #92400e;
+}
+
+.sofia-badge-danger {
+    background-color: #fee2e2;
+    color: #991b1b;
+}
+
+.sofia-badge-info {
+    background-color: #dbeafe;
+    color: #1e40af;
+}
+
+/* ===== RESPONSIVE DESIGN ===== */
+@media (max-width: 768px) {
+    .sofia-sidebar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100vh;
+        z-index: 50;
+    }
+    
+    html[dir="rtl"] .sofia-sidebar {
+        left: auto;
+        right: 0;
+    }
+    
+    .sofia-sidebar.hidden {
+        transform: translateX(-100%);
+    }
+    
+    html[dir="rtl"] .sofia-sidebar.hidden {
+        transform: translateX(100%);
+    }
+}

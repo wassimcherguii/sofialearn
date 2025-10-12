@@ -55,34 +55,172 @@
             margin-left: 4rem;
         }
         
-        /* RTL Support - Simple and Clean */
-        html[dir="rtl"] .sidebar-hidden {
-            transform: translateX(100%) !important;
-        }
-        
+        /* RTL Support - Force override with !important */
         html[dir="rtl"] .main-content-expanded {
             margin-left: 0 !important;
             margin-right: 4rem !important;
         }
         
-        /* RTL Navbar - Reverse order */
-        html[dir="rtl"] header {
+        html[dir="rtl"] .sidebar-hidden {
+            transform: translateX(100%) !important;
+        }
+        
+        /* RTL Sidebar positioning - Force override */
+        html[dir="rtl"] #sidebar {
+            right: 0 !important;
+            left: auto !important;
+            border-right: none !important;
+            border-left: 1px solid #f3f4f6 !important;
+        }
+        
+        /* RTL Main content margin - Force override */
+        html[dir="rtl"] .main-content-expanded {
+            margin-left: 0 !important;
+            margin-right: 4rem !important;
+        }
+        
+        /* RTL Mobile sidebar - Force override */
+        @media (max-width: 768px) {
+            html[dir="rtl"] #sidebar {
+                right: 0 !important;
+                left: auto !important;
+            }
+        }
+        
+        /* RTL Layout fixes */
+        html[dir="rtl"] .flex.items-center.w-64 {
             flex-direction: row-reverse !important;
         }
         
-        /* RTL Logo box - Keep normal order (burger first, then logo) */
-        html[dir="rtl"] .logo-box {
-            flex-direction: row !important;
-        }
-        
-        /* RTL Logo section - Keep normal order */
-        html[dir="rtl"] .logo-section {
-            flex-direction: row !important;
-        }
-        
-        /* RTL User actions - Reverse order */
         html[dir="rtl"] .flex.items-center.space-x-4 {
             flex-direction: row-reverse !important;
+        }
+        
+        html[dir="rtl"] .flex.items-center.space-x-3 {
+            flex-direction: row-reverse !important;
+        }
+        
+        html[dir="rtl"] .flex.items-center.space-x-6 {
+            flex-direction: row-reverse !important;
+        }
+        
+        /* RTL Navbar element order - Force override */
+        html[dir="rtl"] header {
+            direction: rtl !important;
+            flex-direction: row-reverse !important;
+        }
+        
+        html[dir="rtl"] header .flex.items-center.space-x-4 {
+            flex-direction: row-reverse !important;
+        }
+        
+        html[dir="rtl"] header .flex.items-center.w-64 {
+            flex-direction: row-reverse !important;
+        }
+        
+        /* RTL Logo box - burger icon first (right side), then logo */
+        html[dir="rtl"] header .logo-box {
+            flex-direction: row-reverse !important;
+        }
+        
+        /* RTL Logo section internal elements */
+        html[dir="rtl"] header .logo-section {
+            flex-direction: row-reverse !important;
+        }
+        
+        /* RTL Burger button positioning */
+        html[dir="rtl"] header .burger-button {
+            margin-left: 0 !important;
+            margin-right: 0.5rem !important;
+        }
+        
+        html[dir="rtl"] header .burger-button:last-child {
+            margin-right: 0 !important;
+        }
+        
+        /* RTL Logo text alignment */
+        html[dir="rtl"] header .sidebar-logo-text {
+            text-align: right !important;
+        }
+        
+        /* RTL Logo box spacing between logo and burger */
+        html[dir="rtl"] header .logo-box > * {
+            margin-left: 0 !important;
+            margin-right: 0.75rem !important;
+        }
+        
+        html[dir="rtl"] header .logo-box > *:last-child {
+            margin-right: 0 !important;
+        }
+        
+        /* RTL Navbar main container */
+        html[dir="rtl"] header.flex.items-center.justify-between {
+            flex-direction: row-reverse !important;
+        }
+        
+        /* RTL Navbar specific overrides */
+        html[dir="rtl"] header {
+            justify-content: space-between !important;
+        }
+        
+        /* Ensure proper RTL order */
+        html[dir="rtl"] header > *:first-child {
+            order: 2 !important;
+        }
+        
+        html[dir="rtl"] header > *:last-child {
+            order: 1 !important;
+        }
+        
+        
+        html[dir="rtl"] header .flex.items-center.space-x-4 > * {
+            margin-right: 0 !important;
+            margin-left: 1rem !important;
+        }
+        
+        html[dir="rtl"] header .flex.items-center.space-x-4 > *:first-child {
+            margin-left: 0 !important;
+        }
+        
+        /* RTL Margins */
+        html[dir="rtl"] .mr-2 {
+            margin-right: 0 !important;
+            margin-left: 0.5rem !important;
+        }
+        
+        html[dir="rtl"] .mr-3 {
+            margin-right: 0 !important;
+            margin-left: 0.75rem !important;
+        }
+        
+        html[dir="rtl"] .mr-4 {
+            margin-right: 0 !important;
+            margin-left: 1rem !important;
+        }
+        
+        html[dir="rtl"] .ml-2 {
+            margin-left: 0 !important;
+            margin-right: 0.5rem !important;
+        }
+        
+        html[dir="rtl"] .ml-3 {
+            margin-left: 0 !important;
+            margin-right: 0.75rem !important;
+        }
+        
+        html[dir="rtl"] .ml-1 {
+            margin-left: 0 !important;
+            margin-right: 0.25rem !important;
+        }
+        
+        html[dir="rtl"] .me-2 {
+            margin-inline-end: 0 !important;
+            margin-inline-start: 0.5rem !important;
+        }
+        
+        html[dir="rtl"] .ms-2 {
+            margin-inline-start: 0 !important;
+            margin-inline-end: 0.5rem !important;
         }
         
         /* RTL Text alignment */
@@ -90,28 +228,90 @@
             text-align: right !important;
         }
         
-        /* RTL Margins for burger buttons - Convert mr to ml */
-        html[dir="rtl"] .mr-3 {
-            margin-right: 0 !important;
-            margin-left: 0.75rem !important;
+        html[dir="rtl"] .text-right {
+            text-align: left !important;
         }
         
-        html[dir="rtl"] .mr-2 {
-            margin-right: 0 !important;
-            margin-left: 0.5rem !important;
+        /* RTL Borders */
+        html[dir="rtl"] .border-r {
+            border-right: none !important;
+            border-left: 1px solid !important;
         }
         
-        /* Debug: Show current locale and RTL status */
-        html[dir="rtl"]::before {
-            content: "RTL MODE ACTIVE";
-            position: fixed;
-            top: 0;
-            left: 0;
-            background: red;
-            color: white;
-            padding: 4px 8px;
-            font-size: 12px;
-            z-index: 9999;
+        html[dir="rtl"] .border-l {
+            border-left: none !important;
+            border-right: 1px solid !important;
+        }
+        
+        /* RTL Positioning */
+        html[dir="rtl"] .left-full {
+            left: auto !important;
+            right: 100% !important;
+        }
+        
+        html[dir="rtl"] .right-full {
+            right: auto !important;
+            left: 100% !important;
+        }
+        
+        html[dir="rtl"] .right-0 {
+            right: auto !important;
+            left: 0 !important;
+        }
+        
+        html[dir="rtl"] .left-0 {
+            left: auto !important;
+            right: 0 !important;
+        }
+        
+        html[dir="rtl"] .-right-1 {
+            right: auto !important;
+            left: -0.25rem !important;
+        }
+        
+        html[dir="rtl"] .-left-1 {
+            left: auto !important;
+            right: -0.25rem !important;
+        }
+        
+        /* RTL Flexbox */
+        html[dir="rtl"] .justify-start {
+            justify-content: flex-end !important;
+        }
+        
+        html[dir="rtl"] .justify-end {
+            justify-content: flex-start !important;
+        }
+        
+        /* RTL Sidebar specific */
+        html[dir="rtl"] .sidebar-collapsed nav a {
+            flex-direction: row-reverse !important;
+        }
+        
+        html[dir="rtl"] .sidebar-collapsed .user-section .flex {
+            flex-direction: row-reverse !important;
+        }
+        
+        html[dir="rtl"] .sidebar-collapsed .user-section .flex button {
+            flex-direction: row-reverse !important;
+        }
+        
+        /* RTL Main content */
+        html[dir="rtl"] main {
+            text-align: right !important;
+        }
+        
+        html[dir="rtl"] .flex.items-center.justify-between {
+            flex-direction: row-reverse !important;
+        }
+        
+        html[dir="rtl"] .flex.items-center.text-sm {
+            flex-direction: row-reverse !important;
+        }
+        
+        /* YouTube-style - logo box stays unchanged */
+        .logo-box-collapsed {
+            /* No changes to logo box - it stays the same */
         }
         
         @media (min-width: 768px) {
@@ -127,15 +327,15 @@
         <header class="bg-white shadow-sm border-b border-gray-100 px-4 py-3 flex items-center justify-between">
             <!-- Logo Box (Sidebar Width) - Will be on right in RTL -->
             <div class="flex items-center w-64 logo-box">
-                <!-- Desktop toggle button -->
-                <button id="toggleSidebar" class="hidden md:block p-2 rounded-lg hover:bg-gray-100 mr-3 burger-button">
+                <!-- Mobile menu button -->
+                <button id="openSidebar" class="md:hidden p-2 rounded-lg hover:bg-gray-100 mr-2 burger-button">
                     <svg class="w-6 h-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
                     </svg>
                 </button>
 
-                <!-- Mobile menu button -->
-                <button id="openSidebar" class="md:hidden p-2 rounded-lg hover:bg-gray-100 mr-2 burger-button">
+                <!-- Desktop toggle button -->
+                <button id="toggleSidebar" class="hidden md:block p-2 rounded-lg hover:bg-gray-100 mr-3 burger-button">
                     <svg class="w-6 h-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
                     </svg>
@@ -160,19 +360,6 @@
     
             <!-- User Info & Actions - Will be on left in RTL -->
             <div class="flex items-center space-x-4">
-                <div class="text-left">
-                    <h1 class="text-xl font-bold text-gray-800">{{ __('pages.admin.dashboard.title') }}</h1>
-                    <p class="text-sm text-gray-500">{{ __('pages.admin.dashboard.welcome', ['name' => auth()->user()->name]) }}</p>
-                </div>
-
-                <!-- Notifications -->
-                <button class="p-2 rounded-lg hover:bg-gray-100 relative">
-                    <svg class="w-6 h-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-5 5v-5zM4.828 7l2.586 2.586a2 2 0 002.828 0L12.828 7H4.828z"/>
-                    </svg>
-                    <span class="absolute -top-1 -right-1 w-3 h-3 bg-red-500 rounded-full"></span>
-                </button>
-
                 <!-- Language Dropdown -->
                 <button type="button" class="inline-flex items-center px-4 py-2 text-sm font-medium text-center text-gray-700 bg-white border border-gray-300 rounded-lg hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-blue-300" id="languageDropdownButton" data-dropdown-toggle="languageDropdownMenu" aria-expanded="false">
                     <svg class="w-4 h-4 me-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 3h1m1 0h5m0 0v5m0-5-6 6M3 11h4m3 0h7M3 15h7"/></svg>
@@ -209,6 +396,19 @@
                     </ul>
                 </div>
 
+                <!-- Notifications -->
+                <button class="p-2 rounded-lg hover:bg-gray-100 relative">
+                    <svg class="w-6 h-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-5 5v-5zM4.828 7l2.586 2.586a2 2 0 002.828 0L12.828 7H4.828z"/>
+                    </svg>
+                    <span class="absolute -top-1 -right-1 w-3 h-3 bg-red-500 rounded-full"></span>
+                </button>
+                
+                <div class="text-left">
+                    <h1 class="text-xl font-bold text-gray-800">{{ __('pages.admin.dashboard.title') }}</h1>
+                    <p class="text-sm text-gray-500">{{ __('pages.admin.dashboard.welcome', ['name' => auth()->user()->name]) }}</p>
+                </div>
+
                 <!-- Hidden form to switch locale -->
                 <form id="locale-switch-form" method="POST" action="{{ route('locale.switch') }}" class="hidden">
                     @csrf
@@ -220,7 +420,7 @@
         <!-- Main Content Area -->
         <div class="flex flex-1">
             <!-- Sidebar -->
-            <div id="sidebar" class="w-64 bg-white shadow-lg {{ app()->getLocale() === 'ar' ? 'border-l' : 'border-r' }} border-gray-100 sidebar-transition md:translate-x-0 sidebar-hidden fixed md:relative top-0 {{ app()->getLocale() === 'ar' ? 'right-0' : 'left-0' }} h-full z-40" data-collapsed="false">
+            <div id="sidebar" class="w-64 bg-white shadow-lg border-r border-gray-100 sidebar-transition md:translate-x-0 sidebar-hidden fixed md:relative top-0 left-0 h-full z-40" data-collapsed="false">
                 <div class="flex flex-col h-full">
                     <!-- Navigation -->
                     <nav class="flex-1 px-4 py-6 space-y-2">
